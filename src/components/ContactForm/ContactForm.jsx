@@ -4,9 +4,9 @@ import * as yup from 'yup';
 import styled from 'styled-components';
 import { useDispatch } from "react-redux";
 // import { getContacts } from 'redux/selectors';
-import { fetchContacts } from 'redux/operation';
+import { fetchContacts, addContact  } from 'redux/contacts/operation';
 
-import { addContact } from 'redux/operation';
+
 
 const InputField = styled(Field)`
     outline: none;

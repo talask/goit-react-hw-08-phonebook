@@ -2,9 +2,9 @@
 import { ContactItem } from './ContactItem';
 import { Table } from './Contacts.styled';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteContact } from 'redux/operation';
-import { getFilter } from 'redux/selectors';
-import { getContacts } from 'redux/selectors';
+import { getContacts } from 'redux/contacts/selectors'; 
+import { getFilter } from 'redux/contacts/selectors'; 
+//import { getContacts } from 'redux/selectors';
 
 export const Contacts = () => {
     const contacts = useSelector(getContacts);

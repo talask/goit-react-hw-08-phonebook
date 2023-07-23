@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from "react-redux";
 import { InputField } from '../ContactForm/ContactForm.styled';
-import { getFilter } from 'redux/selectors';
-import { updateFilter } from 'redux/filterSlice';
+import { getFilter } from 'redux/contacts/selectors'; 
+import { updateFilter } from 'redux/contacts/filterSlice';
 
 
 export const Filter = () => {
