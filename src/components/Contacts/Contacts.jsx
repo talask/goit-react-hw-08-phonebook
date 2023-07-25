@@ -4,7 +4,7 @@ import { Table } from './Contacts.styled';
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from 'redux/contacts/selectors'; 
 import { getFilter } from 'redux/contacts/selectors'; 
-//import { getContacts } from 'redux/selectors';
+import { deleteContact } from 'redux/contacts/operation'; 
 
 export const Contacts = () => {
     const contacts = useSelector(getContacts);
