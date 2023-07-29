@@ -11,7 +11,7 @@ export const UserMenu = () => {
     
 
     const handleLogout = () => {
-        console.log("logout");
+        
         dispatch(logOut());
     }
 

@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { Button, DivMyForm, Label } from '../ContactForm/ContactForm.styled';
+import { Div } from 'components/Common/App.styled';
 import { register } from 'redux/auth/operations';
 
 const initialValues = {
@@ -43,6 +44,7 @@ export const RegistredForm = () => {
       };
 
     return (
+      <Div>
         <DivMyForm>
         <Formik
             initialValues = {initialValues}
@@ -82,5 +84,6 @@ export const RegistredForm = () => {
             </Form>
           </Formik>
         </DivMyForm>
+      </Div>
     )
 }
