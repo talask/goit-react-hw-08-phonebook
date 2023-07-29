@@ -9,7 +9,7 @@ import { deleteContact } from 'redux/contacts/operation';
 export const Contacts = () => {
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilter);
-   
+   console.log(contacts);
     const dispatch = useDispatch();
     
     const fnDelete = (id) => {
@@ -30,13 +30,13 @@ export const Contacts = () => {
     return ( 
         contacts.length > 0 && <Table>
             <tbody>
-                {visibleContacts().map(({name, phone, id}, i) => {
-                    console.log(name, phone, id)
+                {visibleContacts().map(({name, number, id}, i) => {
+                  
                     return (
                         <ContactItem 
-                            key={i}
+                            key={id}
                             name={name} 
-                            phone={phone} 
+                            number={number} 
                             id={id}
                             fnDelete={fnDelete}
                         ></ContactItem>

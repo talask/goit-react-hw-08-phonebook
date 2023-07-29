@@ -9,9 +9,11 @@ export const Filter = () => {
     
     const filter = useSelector(getFilter);
     const dispatch = useDispatch();
-
+    console.log("filter",filter)
     const handleChange = evt => {
+      
         const { value } = evt.target;
+       
         dispatch(updateFilter(value));
     };
 

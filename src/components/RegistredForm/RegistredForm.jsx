@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-//import * as yup from 'yup';
+import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { Button, DivMyForm, Label } from '../ContactForm/ContactForm.styled';
@@ -10,7 +10,11 @@ const initialValues = {
     email: '',
     password: '',
   };
-
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    email: yup.string().required(),
+    password: yup.string().required(),
+  });
   const InputField = styled(Field)`
     outline: none;
     padding: 5px 8px;
@@ -28,26 +32,23 @@ export const RegistredForm = () => {
 
     const dispatch = useDispatch();
     
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.currentTarget;
+    const handleSubmit = values => {
+       
         dispatch(
           register({
-            name: form.elements.name.value,
-            email: form.elements.email.value,
-            password: form.elements.password.value,
+            ...values
           })
         );
-        form.reset();
+       
       };
 
     return (
         <DivMyForm>
         <Formik
             initialValues = {initialValues}
-            //validationSchema = {schema}
+            validationSchema = {schema}
             onSubmit = {(values, {resetForm}) => {
-              
+              console.log(values);
               handleSubmit(values);
               resetForm();
             }}
@@ -68,12 +69,15 @@ export const RegistredForm = () => {
                     type="mail"
                     name="email"
                 />
-                <ErrorField name="phone" component="div" />
+                <ErrorField name="email" component="div" />
+                <Label>
+                    Password
+                </Label>
                 <InputField 
                     type="password"
                     name="password"
                 />
-                <ErrorField name="phone" component="div" />
+                <ErrorField name="password" component="div" />
                 <Button type="submit">Add contact</Button>
             </Form>
           </Formik>
