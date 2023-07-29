@@ -6,6 +6,9 @@ import { Link,} from 'react-router-dom';
 `;
 
 export const Nav = styled.nav`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     padding: 10px 15px;
     box-shadow: 0 5px 5px -5px #333;
@@ -19,4 +22,11 @@ export const LinkNav = styled(Link)`
     &:active {
     color: orange;
   }
-`
+`;
+export const NavHome = styled.nav`
+    display: flex;
+    gap:24px;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+`;

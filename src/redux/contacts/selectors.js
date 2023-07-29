@@ -1,5 +1,5 @@
 export const getContacts = state => { 
-    console.log(state);
+   
     return state.contacts.items
 };
 export const getIsLoading = state => state.contacts.isLoading;

@@ -18,18 +18,22 @@ import { fetchContacts } from 'redux/contacts/operation';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
+  
 
   useEffect(() => {
     dispatch(refreshUser());
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if(isLoggedIn) dispatch(fetchContacts());
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route 
+        path="/" 
+        element={<Layout />}
+      >
         
         <Route
           path="/register"

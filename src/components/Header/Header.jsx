@@ -1,7 +1,8 @@
 import { LinkNav, Nav } from "./Header.styled";
 import { useAuth } from "redux/hooks/useAuth";
+import { Navigation } from "components/Navigation/Nanigation"; 
 import { UserMenu } from "components/UserMenu/UserMenu";
-
+import { DivUser } from "components/UserMenu/UserMenu.styled";
 
 
 export const Header =  () => {
@@ -10,13 +11,13 @@ export const Header =  () => {
     return (
         <section>
             <Nav>
-                <LinkNav to="/">Home</LinkNav>
+                <Navigation />
                 { isLoggedIn ? <UserMenu /> :
-                <div>
+                <DivUser>
                 <LinkNav to="/register">Registrated</LinkNav>
                  
                 <LinkNav to="/login">Login</LinkNav>
-                </div>
+                </DivUser>
                 }
             </Nav>
       </section>

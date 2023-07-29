@@ -9,7 +9,7 @@ import { deleteContact } from 'redux/contacts/operation';
 export const Contacts = () => {
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilter);
-   console.log(contacts);
+   
     const dispatch = useDispatch();
     
     const fnDelete = (id) => {
