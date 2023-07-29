@@ -70,7 +70,7 @@ export const Login = () => {
                     name="password"
                 />
                 <ErrorField name="password" component="div" />
-                <Button type="submit">Add contact</Button>
+                <Button type="submit">Log In</Button>
             </Form>
           </Formik>
         </DivMyForm>

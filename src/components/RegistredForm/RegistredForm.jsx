@@ -78,7 +78,7 @@ export const RegistredForm = () => {
                     name="password"
                 />
                 <ErrorField name="password" component="div" />
-                <Button type="submit">Add contact</Button>
+                <Button type="submit">Registrated</Button>
             </Form>
           </Formik>
         </DivMyForm>
