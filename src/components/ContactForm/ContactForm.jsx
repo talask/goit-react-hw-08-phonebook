@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import styled from 'styled-components';
 import { useDispatch } from "react-redux";
 // import { getContacts } from 'redux/selectors';
-import {  addContact, fetchContacts  } from 'redux/contacts/operation';
+import {  addContact  } from 'redux/contacts/operation';
 
 
 
@@ -39,7 +39,7 @@ export const ContactForm = () => {
   const handleContactsChange = (obj) => {
     
     dispatch(addContact(obj));
-    dispatch(fetchContacts());   
+    
   };
 
     return ( 

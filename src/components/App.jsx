@@ -9,6 +9,7 @@ import { useAuth } from 'redux/hooks/useAuth';
 import { RegistredForm } from './RegistredForm/RegistredForm';
 import { Login } from './Login/Login';
 import { RegistredLayout } from './RegistredLayout/RegistredLayout';
+import { fetchContacts } from 'redux/contacts/operation';
 
 //const HomePage = lazy(() => import('../pages/Home'));
 //const RegistredLayout = lazy(() => import('./RegistredLayout/RegistredLayout'));
@@ -21,6 +22,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return isRefreshing ? (
@@ -28,11 +30,12 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* <Route index element={<HomePage />} /> */}
+        
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<RegistredForm />} />
+            <RestrictedRoute redirectTo="/contacts" component={<RegistredForm />} 
+        />
           }
         />
         <Route
