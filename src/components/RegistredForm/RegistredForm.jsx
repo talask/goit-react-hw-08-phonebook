@@ -29,7 +29,7 @@ const ErrorField = styled(ErrorMessage)`
   font-size: 10px;
 `
 
-export const RegistredForm = () => {
+export default function RegistredForm()  {
 
     const dispatch = useDispatch();
     

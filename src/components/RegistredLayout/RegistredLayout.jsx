@@ -7,7 +7,7 @@ import { getIsLoading, getError } from "redux/contacts/selectors";
 
 import { useSelector } from "react-redux";
 
-export const RegistredLayout = () => {
+export default function RegistredLayout() {
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 

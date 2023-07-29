@@ -28,7 +28,7 @@ const ErrorField = styled(ErrorMessage)`
   font-size: 10px;
 `
 
-export const Login = () => {
+export default function Login()  {
 
     const dispatch = useDispatch();
     
