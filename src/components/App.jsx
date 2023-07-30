@@ -23,9 +23,7 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("useEffect");
-    dispatch(refreshUser());
-
+    
     if(isLoggedIn) dispatch(fetchContacts());
 
   }, [dispatch, isLoggedIn]);
