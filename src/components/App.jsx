@@ -17,13 +17,13 @@ export const App = () => {
   const { isRefreshing, isLoggedIn } = useAuth();
   
   useEffect(() => {
-    
+
     dispatch(refreshUser());
 
   }, [dispatch]);
 
   useEffect(() => {
-    
+   
     if(isLoggedIn) dispatch(fetchContacts());
 
   }, [dispatch, isLoggedIn]);
