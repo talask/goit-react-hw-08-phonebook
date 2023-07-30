@@ -2,15 +2,16 @@
 import { ContactItem } from './ContactItem';
 import { Table } from './Contacts.styled';
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts } from 'redux/contacts/selectors'; 
-import { getFilter } from 'redux/contacts/selectors'; 
+import { getContacts, getFilter } from 'redux/contacts/selectors'; 
 import { deleteContact } from 'redux/contacts/operation'; 
 
+
+
 export const Contacts = () => {
+    const dispatch = useDispatch();
+   
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilter);
-   
-    const dispatch = useDispatch();
     
     const fnDelete = (id) => {
         dispatch(deleteContact(id));

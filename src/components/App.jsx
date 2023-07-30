@@ -1,6 +1,6 @@
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -16,10 +16,18 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
   
+  useEffect(() => {
+    
+    dispatch(refreshUser());
+
+  }, [dispatch]);
 
   useEffect(() => {
+    console.log("useEffect");
     dispatch(refreshUser());
+
     if(isLoggedIn) dispatch(fetchContacts());
+
   }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
@@ -51,6 +59,7 @@ export const App = () => {
           }
         />
       </Route>
+      <Route path="*" element={<Navigate to="/" replace/>} />
     </Routes>
   );
 };

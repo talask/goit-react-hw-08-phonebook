@@ -1,9 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Button, DivMyForm, Label } from './ContactForm.styled';
 import * as yup from 'yup';
 import styled from 'styled-components';
-import { useDispatch } from "react-redux";
-// import { getContacts } from 'redux/selectors';
+import { useDispatch, useSelector } from "react-redux";
+import { getContacts } from 'redux/contacts/selectors';
 import {  addContact  } from 'redux/contacts/operation';
 
 
@@ -35,9 +36,16 @@ const schema = yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const handleContactsChange = (obj) => {
     
+    const existingContact = contacts.find((contact) => 
+    contact.name === obj.name && contact.phone === obj.phone );
+
+    if (existingContact) {
+      return Notify.warning("Contact with the same name and phone already exists");
+    }
     dispatch(addContact(obj));
     
   };
